@@ -2,17 +2,18 @@ package com.sushiapp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Spliterator;
 
 public class FabrykaSushi {
-    private String nazwa;
-    private String[] skladniki;
+    private String name;
+    private String[] ingredients;
     private static FabrykaSushi fabrykaSushi;
-    private List<Sushi> sprzedaneRolki;
+    private List<Sushi> sold;
 
-    private FabrykaSushi(String nazwa) {
-        this.nazwa = nazwa;
-        this.sprzedaneRolki = new ArrayList<Sushi>();
-        this.skladniki = new String[7];
+    private FabrykaSushi(String name) {
+        this.name = name;
+        this.sold = new ArrayList<Sushi>();
+        this.ingredients = new String[7];
 
         przypiszSkladniki();
     }
@@ -24,48 +25,48 @@ public class FabrykaSushi {
     }
 
     private void przypiszSkladniki() {
-        skladniki[0] = "Losos";
-        skladniki[1] = "Tunczyk";
-        skladniki[2] = "Ogorek";
-        skladniki[3] = "Makrela";
-        skladniki[4] = "Pieczony Losos";
-        skladniki[5] = "Krewetka";
-        skladniki[6] = "Osmiornica";
+        ingredients[0] = "Losos";
+        ingredients[1] = "Tunczyk";
+        ingredients[2] = "Ogorek";
+        ingredients[3] = "Makrela";
+        ingredients[4] = "Pieczony Losos";
+        ingredients[5] = "Krewetka";
+        ingredients[6] = "Osmiornica";
     }
 
     public Sushi stworzLosowaRolkeSushi() {
-        int idxSkladnik = (int) (Math.random() * skladniki.length);
-        return new Sushi(skladniki[idxSkladnik]);
+        int idxSkladnik = (int) (Math.random() * ingredients.length);
+        return new Sushi(ingredients[idxSkladnik]);
     }
 
     public SushiCalifornia stworzRolkaCalifornia(String nazwa, String skladnikNaWierzchu ) {
         SushiCalifornia sc = new SushiCalifornia(nazwa, skladnikNaWierzchu);
-        sprzedaneRolki.add(sc);
+        sold.add(sc);
         return sc;
     }
 
     public SushiNigiri stworzRolkaNigiri(String nazwa, String skladnikNaWierzchu, boolean Opiekany) {
         SushiNigiri sn = new SushiNigiri(nazwa, skladnikNaWierzchu, Opiekany);
-        sprzedaneRolki.add(sn);
+        sold.add(sn);
         return sn;
     }
 
     public SushiSpecial stworzRolkeSpecjalna(String nazwa, double czasGrillowania) {
         SushiSpecial ss = new SushiSpecial(nazwa, czasGrillowania);
-        sprzedaneRolki.add(ss);
+        sold.add(ss);
         return ss;
     }
 
     public String getNazwa() {
-        return nazwa;
+        return name;
     }
 
     public List<Sushi> getSprzedaneRolki() {
-        return sprzedaneRolki;
+        return sold;
     }
 
     @Override
     public String toString() {
-        return "FabrykaSushi [nazwa=" + nazwa + "]";
+        return "FabrykaSushi [nazwa=" + name + "]";
     }
 }
