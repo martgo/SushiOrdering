@@ -4,30 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sushi {
-    protected String nazwa;
-    private static int ileZrobilemRolek;
-    protected List<String> skladniki;
-    protected int cena;
-    public Sushi(String nazwa) {
-        this.nazwa = nazwa;
-        this.skladniki = new ArrayList<String>();
-        dodajSkladnik("Ryż");
-        ileZrobilemRolek++;
+    protected String name;
+    private static int sushimade;
+    protected List<String> ingredients;
+    protected int price;
+    public Sushi(String name) {
+        this.name = name;
+        this.ingredients = new ArrayList<String>();
+        addIngredients("Ryż");
+        sushimade++;
     }
-    protected void dodajSkladnik(String skladnik) {
-        skladniki.add(skladnik);
+    protected void addIngredients(String ingredient) {
+        ingredients.add(ingredient);
     }
     public List<String> getSkladniki(){
-        return skladniki;
+        return ingredients;
     }
-    public static int ileZrobilemRolek() {
-        return ileZrobilemRolek;
+    public static int sushimade() {
+        return sushimade;
     }
-    public int getCena() {
-        return cena;
+    public int getPrice() {
+        return price;
     }
-    public String getNazwa() {
-        return nazwa;
+    public String getName() {
+        return name;
     }
 }
 
