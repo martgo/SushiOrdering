@@ -3,10 +3,10 @@ package com.sushiapp;
 public class SushiCalifornia extends Sushi{
     private String topIngredient;
 
-    public SushiCalifornia(String name, String skladnikNaWierzchu) {
+    public SushiCalifornia(String name, String topIngredient) {
         super(name);
-        this.topIngredient = skladnikNaWierzchu;
-        addIngredients(skladnikNaWierzchu);
+        this.topIngredient = topIngredient;
+        addIngredients(topIngredient);
         price = 20;
     }
     @Override
