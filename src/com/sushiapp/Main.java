@@ -1,6 +1,7 @@
 package com.sushiapp;
 
 import javax.imageio.IIOException;
+import javax.swing.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends JPanel{
     public static void main(String[] args) {
-            FabrykaSushi fabrykaSushi = FabrykaSushi.getInstance();
+
+        FabrykaSushi fabrykaSushi = FabrykaSushi.getInstance();
             System.out.println("Zestawy:");
 
             Sushi[] sushiTab = new Sushi[]{
@@ -55,6 +57,7 @@ public class Main {
             zapiszRachunekDoPliku(pozycje);
         }
 
+
             public static void zapiszRachunekDoPliku(List<ZamowieniePozycja> pozycje) {
             File file = new File("rachunek101.txt"); // Path
             try {
@@ -73,6 +76,5 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             }
         }
